@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent implements OnInit {
-    username:string = '';
+    username: string = '';
 
-    constructor(private router:Router, private forms:FormsModule) {
+    constructor(private router: Router, private forms: FormsModule) {
 
     }
 
@@ -22,6 +22,10 @@ export class LoginComponent implements OnInit {
     loginUser(event) {
         event.preventDefault();
 
-        this.router.navigateByUrl('/account');
+        if (this.username.length != 0) {
+            this.router.navigateByUrl('/account');
+        } else {
+            alert("You have to enter a username!");
+        }
     }
 }
