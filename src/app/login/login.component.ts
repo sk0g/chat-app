@@ -16,13 +16,20 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log("Testing is DOM ready?");
 
+        if (typeof(Storage) != "undefined") {
+            console.log("storage good to go");
+        } else {
+            alert("Local storage not available. Try using a browser from this century?");
+        }
     }
 
     loginUser(event) {
         event.preventDefault();
 
         if (this.username.length != 0) {
+            localStorage.setItem("username", this.username);
             this.router.navigateByUrl('/account');
         } else {
             alert("You have to enter a username!");

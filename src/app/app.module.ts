@@ -6,19 +6,21 @@ import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { DisplayGroupsComponent } from './display-groups/display-groups.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AccountComponent,
-    LoginComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AccountComponent,
+        LoginComponent,
+        DisplayGroupsComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
