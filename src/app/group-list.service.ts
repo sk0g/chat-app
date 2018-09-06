@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class GroupListService {
     getChatGroups(): string[] {
-        return ["Group1", "Group2"];
+        return ["Room1", "Room2"];
     }
 
 

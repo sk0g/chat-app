@@ -1,0 +1,12 @@
+{
+    "groups": [
+        {
+            "name": "Room1",
+            "channels": ["Channel1, Channel2"]
+        },
+        {
+            "name": "Room2",
+            "channels": ["New Channel"]
+        }
+    ]
+}
