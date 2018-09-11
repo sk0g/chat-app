@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule }    from '@angular/platform-browser';
+
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
 import { DisplayGroupsComponent } from './display-groups/display-groups.component';
+
+
 
 const routes:Routes = [
     {path:''          , redirectTo:'login', pathMatch        :'full'},
@@ -12,7 +17,11 @@ const routes:Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [
+        RouterModule.forRoot(routes),
+        BrowserModule,
+        HttpClientModule
+    ],
 
     exports: [RouterModule]
 })

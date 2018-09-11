@@ -14,6 +14,9 @@ export class DisplayGroupsComponent implements OnInit {
 
     ngOnInit() {
         this.chat_groups = this._groupListService.getChatGroups();
+        console.log(this._groupListService.getChatGroupsJson()
+            .subscribe((data: any)) => this.chat_groups = {
+                
+            });
     }
-
 }
