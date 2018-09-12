@@ -1,16 +1,14 @@
 {
     "users": [
         {
-            "name": "super",
-            "level": 2
-        },
-        {
-            "name": "random",
-            "level": 1
-        },
-        {
             "name": "Arnold",
-            "level": 2
+            "level": 2,
+            "email": "surprise@surprise.com"
+        },
+        {
+            "name": "Aarnerd",
+            "level": 2,
+            "email": "surprise@surprise.com"
         }
     ]
 }
