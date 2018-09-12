@@ -94,13 +94,41 @@ router.patch('/:userName', (req, res, next) => {
     }
 });
 
+router.delete('/:userName', (req, res, next) => {
+    // Delete a pre-existing user
+});
+
+router.get('/:userName', (req, res, next) => {
+    // Fetches a user, given a username
+    let userName = req.params.userName;
+    let found = false;
+
+    // Attempt finding the user and change a variable if found
+    for (var user in users.users) {
+        user = users.users[user];
+        if (user.name === userName) {
+            found = true;
+            break;
+        }
+    }
+
+    // If found, return user details, else an error message
+    if (found) {
+        res.status(200).json({
+            message: "User found!",
+            user: user
+        });
+    } else {
+        res.status(400).json({
+            message: "User not found."
+        });
+    }
+});
+
 function mk_string(obj) {
     // Returns a properly JSON stringified form of the object
     return JSON.stringify(obj, null, 4);
 }
 
-router.delete('/:userName', (req, res, next) => {
-    // Delete a pre-existing user
-});
 
 module.exports = router;
