@@ -96,6 +96,37 @@ router.patch('/:userName', (req, res, next) => {
 
 router.delete('/:userName', (req, res, next) => {
     // Delete a pre-existing user
+    let userName = req.params.userName;
+    let found = false;
+
+    // Attempt finding the user and change a variable if found
+    for (var user_index in users.users) {
+        if (users.users[user_index].name === userName) {
+            found = true;
+            break;
+        }
+    }
+
+    // If found, delete user at user_index, else show an error
+    if (found) {
+        let spliced_string = users.users.splice(user_index, 1);
+
+
+        fs.writeFile(  process.env.www_folder + '/users.json', mk_string(users), function(err) {
+            if (err) {
+                console.log(err);
+            }
+        });
+
+        res.status(200).json({
+            message: "User deleted",
+            user: users.users[user_index]
+        });
+    } else {
+        res.status(400).json({
+            message: "User not found."
+        });
+    }
 });
 
 router.get('/:userName', (req, res, next) => {
@@ -129,6 +160,5 @@ function mk_string(obj) {
     // Returns a properly JSON stringified form of the object
     return JSON.stringify(obj, null, 4);
 }
-
 
 module.exports = router;
