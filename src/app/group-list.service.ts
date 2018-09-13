@@ -7,17 +7,11 @@ import { HttpHeaders } from '@angular/common/http';
     providedIn: 'root'
 })
 export class GroupListService {
-    getChatGroups(): string[] {
-        return ["Room1", "Room2"];
-    }
-
-    getChatGroupsJson() {
-        let headers = new HttpHeaders()
-                .append('Content-Type', 'application/json')
-                .append('Access-Control-Allow-Headers', 'Content-Type')
-                .append('Access-Control-Allow-Methods', '*')
-                .append('Access-Control-Allow-Origin', '*');
-        return this.http.get("http://localhost:3000/groups.json", {headers});
+    getChatGroups() {
+        let headers = new HttpHeaders();
+        let result = this.http.get("http://localhost:3000/group", {headers});
+        console.log(result);
+        return(result);
     }
 
     constructor(private http: HttpClient) { }

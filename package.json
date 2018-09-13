@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/sk0g/chat-app/issues"
   },
-  "homepage": "https://github.com/sk0g/chat-app#readme"
+  "homepage": "https://github.com/sk0g/chat-app#readme",
+  "nodemonConfig": {
+    "ignore": ["www/*.json"]
+  }
 }

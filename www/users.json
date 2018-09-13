@@ -1,14 +1,21 @@
 {
     "users": [
         {
-            "name": "Arnold",
+            "name": "super",
             "level": 2,
-            "email": "surprise@surprise.com"
+            "email": "surprise@surprise.com",
+            "channels": [
+                ["Room1", "Channel1"],
+                ["Room2", "New Channel"]
+            ]
         },
         {
             "name": "Aarnerd",
             "level": 2,
-            "email": "surprise@surprise.com"
+            "email": "surprise@surprise.com",
+            "channels": [
+                ["Room1", "Channel2"]
+            ]
         }
     ]
 }
