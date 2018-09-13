@@ -1,0 +1,15 @@
+<h1>Group: <i>{{ group }}</i></h1>
+
+<h3>Channel: <i>{{ channel }}</i></h3>
+
+<div  style="height: 600px; width: 400px; border: black; border-width: 2px; border-style: solid;">
+    <ul>
+        No messages to show!
+    </ul>
+</div>
+
+<textarea name="message" id="message" cols="30" rows="10">Enter your message here</textarea>
+<button>SEND MESSAGE</button>
+
+<br>
+<a href="/group/{{ group }}" ng-click="delete_channel()">Delete this channel</a>

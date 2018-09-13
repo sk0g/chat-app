@@ -2,6 +2,10 @@
 
 <ul>
     <li *ngFor="let group of chat_groups">
-        <a href="/group/{{ group }}">{{ group.name }}</a>
+        <a href="/group/{{ group.name }}">{{ group.name }}</a>
     </li>
 </ul>
+
+<br>
+<input [(ngModel)]="groupName">
+<button (click)="add_group([(groupName)])" type=”button”>Add Room</button>

@@ -23,4 +23,12 @@ export class DisplayGroupsComponent implements OnInit {
         });
         console.log(this.chat_groups);
     }
+
+    add_group(group_name) {
+        this._groupListService
+            .createChatGroup(group_name)
+            .subscribe(result => {
+                console.log(result);
+            });
+    }
 };

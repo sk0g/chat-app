@@ -1,0 +1,13 @@
+<h1>{{ chat_group.name }}</h1>
+
+<ul>
+    <li *ngFor="let channel of chat_group.channels">
+        <a href="/group/{{ chat_group.name }}/{{ channel }}">{{ channel }}</a>
+    </li>
+</ul>
+
+<br>
+<a href="">Add a Channel</a>
+
+<br>
+<button (click)="delete_group([ chat_group.name ])" type=”button”>Delete Room</button>
