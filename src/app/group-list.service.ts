@@ -17,7 +17,6 @@ export class GroupListService {
                 .append('Access-Control-Allow-Headers', 'Content-Type')
                 .append('Access-Control-Allow-Methods', '*')
                 .append('Access-Control-Allow-Origin', '*');
-        headers.append('', '');
         return this.http.get("http://localhost:3000/groups.json", {headers});
     }
 
