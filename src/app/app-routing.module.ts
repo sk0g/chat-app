@@ -8,10 +8,12 @@ import { AccountComponent } from './account/account.component';
 import { DisplayGroupsComponent } from './display-groups/display-groups.component';
 import { GroupDetailsComponent } from './group-details/group-details.component';
 import { ChannelViewComponent } from './channel-view/channel-view.component';
+import { DocumentationComponent } from './documentation/documentation.component';
 
 const routes:Routes = [
     {path:''           , redirectTo:'login', pathMatch        :'full'},
     {path:'logout'     , redirectTo:'login', pathMatch        :'full'},
+    {path:'docs'       , component :         DocumentationComponent  },
     {path:'login'      , component :         LoginComponent          },
     {path:'account'    , component :         AccountComponent        },
     {path:'group-list' , component :         DisplayGroupsComponent  },

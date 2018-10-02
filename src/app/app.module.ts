@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { DisplayGroupsComponent } from './display-groups/display-groups.component';
 import { GroupDetailsComponent } from './group-details/group-details.component';
 import { ChannelViewComponent } from './channel-view/channel-view.component';
+import { DocumentationComponent } from './documentation/documentation.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { ChannelViewComponent } from './channel-view/channel-view.component';
         LoginComponent,
         DisplayGroupsComponent,
         GroupDetailsComponent,
-        ChannelViewComponent
+        ChannelViewComponent,
+        DocumentationComponent
     ],
     imports: [
         BrowserModule,
