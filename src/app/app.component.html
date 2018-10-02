@@ -1,4 +1,11 @@
-<a routerLink="login">Login</a> | <a routerLink="account">Account</a> | <a routerLink="group-list">Group List</a> | <a routerLink="logout">Log Out</a>
+<a routerLink="group-list">Group List</a> |
+<a ng-if="loggedIn" routerLink="login">Login</a> |
+<a routerLink="account">Account</a> |
+<a routerLink="logout">Log Out</a>
+
+<div *ngIf="loggedIn">
+    logged in :)))
+</div>
 
 <br>
 <router-outlet></router-outlet>

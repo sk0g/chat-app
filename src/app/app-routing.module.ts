@@ -11,6 +11,7 @@ import { ChannelViewComponent } from './channel-view/channel-view.component';
 
 const routes:Routes = [
     {path:''           , redirectTo:'login', pathMatch        :'full'},
+    {path:'logout'     , redirectTo:'login', pathMatch        :'full'},
     {path:'login'      , component :         LoginComponent          },
     {path:'account'    , component :         AccountComponent        },
     {path:'group-list' , component :         DisplayGroupsComponent  },

@@ -21,3 +21,5 @@ Further separation of these folders would have been better, might switch the dir
 # Responsibilities
 
 The Node server provides a RESTful API, while the Angular front end interfaces with this API to fetch, update and delete data.
+
+# 

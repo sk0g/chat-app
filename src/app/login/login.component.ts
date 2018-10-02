@@ -19,10 +19,15 @@ export class LoginComponent implements OnInit {
         console.log("Testing is DOM ready?");
 
         if (typeof(Storage) != "undefined") {
+            // clear any existing username details, in case some old value is set.
+            // why else would the user be arriving to /login?
+            localStorage.removeItem('username');
             console.log("storage good to go");
         } else {
             alert("Local storage not available. Try using a browser from this century?");
         }
+
+
     }
 
     loginUser(event) {
