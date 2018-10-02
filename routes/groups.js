@@ -15,8 +15,6 @@ router.get('/', (req, res, next) => {
         .select('-__v')
         .exec()
         .then(groups => {
-            console.log(groups);
-
             res.status(200).json({
                 message: "Fetching group list",
                 groups: groups
@@ -37,19 +35,21 @@ router.post('/', (req, res, next) => {
     let parameters = req.body;
 
     if (parameters.name != null) {
-        channels = [];
-        if (parameters.channels != null) {
-            channels = parameters.channels;
-        }
 
-        groups.push({ name: parameters.name, channels: channels });
-        console.log(groups);
-
-        write_to_file(groups);
-
-        res.status(200).json({
-            message: "Group added!"
-        });
+        Groups
+            .create({ "name": parameters.name })
+            .then(result => {
+                res.status(200).json({
+                    message: "Added entry",
+                    result: result
+                })
+            })
+            .catch(err => {
+                res.status(400).json({
+                    message: "Error adding entry",
+                    error: err
+                })
+            })
     } else {
         res.status(400).json({
             message: "Insufficient data to create a group",
@@ -61,53 +61,43 @@ router.post('/', (req, res, next) => {
 router.get('/:groupName', (req, res, next) => {
     // Get a group, using the groupName specified
     let groupName = req.params.groupName;
-    let found = false;
 
-    for (var group in groups) {
-        group = groups[group];
-        if (group.name == groupName) {
-            found = true;
-            break;
-        }
-    }
-
-    if (found) {
-        res.status(200).json({
-            message: "Found the group!",
-            group: group
-        });
-    } else {
-        res.status(400).json({
-            message: "Unable to find the group"
-        });
-    }
+    Groups
+        .find({ "name": groupName })
+        .then(result => {
+            res.status(200).json({
+                message: "found group",
+                result: result
+            })
+        })
+        .catch(err => {
+            res.status(400).json({
+                message: "Error adding entry",
+                error: err
+            })
+        })
 });
 
 router.delete('/:groupName', (req, res, next) => {
     // Delete a group
     let groupName = req.params.groupName;
-    let found = false;
 
-    for (var group_index in groups) {
-        if (groups[group_index]['name'] == groupName) {
-            found = true;
-            break;
-        }
-    }
+    console.log("deleting group " + groupName)
 
-    if (found) {
-        console.log(groups.splice(group_index, 1));
-
-        write_to_file(groups);
-
-        res.status(200).json({
-            message: "Group deleted!"
-        });
-    } else {
-        res.status(400).json({
-            message: "Failed to find group"
-        });
-    }
+    Groups
+        .deleteOne({ name: groupName})
+        .then(result => {
+            res.status(200).json({
+                message: "Deleted group",
+                result: result
+            })
+        })
+        .catch(err => {
+            res.status(400).json({
+                message: "Error deleting group",
+                error: err
+            })
+        })
 });
 
 function write_to_file(g) {

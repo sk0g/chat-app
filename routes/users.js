@@ -1,7 +1,7 @@
 const express   = require('express');
 const fs        = require('fs');
 let router = express.Router();
-let users = require('../www/users.json');
+let Users = require('../models/userModel');
 
 router.get('/', (req, res, next) => {
     // Get a list of all users, and their details

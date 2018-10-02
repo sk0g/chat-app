@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Http } from '@angular/http';
 
 
 @Component({
@@ -11,7 +12,8 @@ export class ChannelViewComponent implements OnInit {
     group: String;
     channel: String;
 
-    constructor(private route: ActivatedRoute) { }
+    constructor(private route: ActivatedRoute,
+                private http: Http) { }
 
     ngOnInit() {
         this.group = this.route.snapshot.paramMap.get('name');
@@ -20,6 +22,6 @@ export class ChannelViewComponent implements OnInit {
     }
 
     delete_channel() {
-        console.log("deleting channel");
+        return this.http.delete("http://localhost:4200/" + this.group);
     }
 };

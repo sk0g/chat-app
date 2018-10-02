@@ -1,3 +1,54 @@
-<p>
-  documentation works!
-</p>
+<h1>Database</h1>
+<h3>Mongoose</h3>
+Mongoose was used to interface with the MongoDB instance. <br>
+Models were created for each table, to simplify the overall process
+
+<h1>Angular Components</h1>
+<h3>Components</h3>
+<ul>
+    <li>Account</li>
+    <li>Channel-view</li>
+    <li>Display-groups</li>
+    <li>Documentation</li>
+    <li>Group-details</li>
+    <li>Login</li>
+</ul>
+
+<h3>Services</h3>
+<ul>
+    <li>Group-list</li>
+</ul>
+
+<h1>Routes</h1>
+<ul>
+    <h3>Groups</h3>
+
+    <li>GET /</li>
+    Returns a list of all the existing Groups
+
+    <li>POST /</li>
+    Adds a group with the provided name
+
+    <li>GET /:groupName</li>
+    Returns the specified group
+
+    <li>DELETE /:groupName</li>
+    Deletes the specified group
+
+    <h3>Users</h3>
+
+    <li>POST /</li>
+    Not fully functional, creates a new user
+
+    <li>GET /</li>
+    Not fully functional, gets a list of all users
+
+    <li>PATCH /:userName</li>
+    Not fully functional, edits an existing user
+
+    <li>DELETE /:userName</li>
+    Not fully functional, deletes an existing user
+
+    <li>GET /:userName</li>
+    Not fully functional, retrieves a user
+</ul>
