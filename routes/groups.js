@@ -2,13 +2,34 @@ const express   = require('express');
 const fs        = require('fs');
 let router = express.Router();
 let groups = require('../www/groups.json');
+let Groups = require('../models/groupModel');
 
 router.get('/', (req, res, next) => {
     // Returns a list of all the groups
-    res.status(200).json({
-        message: "Fetching group list",
-        groups: groups
-    });
+    // res.status(200).json({
+    //     message: "Fetching group list",
+    //     groups: groups
+    // });
+    Groups
+        .find()
+        .select('-__v')
+        .exec()
+        .then(groups => {
+            console.log(groups);
+
+            res.status(200).json({
+                message: "Fetching group list",
+                groups: groups
+            })
+        })
+        .catch(err => {
+            console.log(err);
+
+            res.status(400).json({
+                message: "Unable to get group list",
+                error: err
+            })
+        })
 });
 
 router.post('/', (req, res, next) => {

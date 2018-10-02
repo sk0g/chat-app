@@ -7,6 +7,11 @@ const nocache = require('nocache');
 const usersRoutes  = require('./routes/users');
 const groupsRoutes = require('./routes/groups');
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/myDB');
+mongoose.Promise = global.Promise;
+
+
 var www_folder = __dirname + '/www';
 process.env.www_folder = www_folder;
 
