@@ -1,10 +1,8 @@
-<a routerLink="group-list">Group List</a> |
-<a ng-if="loggedIn" routerLink="login">Login</a> |
-<a routerLink="account">Account</a> |
-<a routerLink="logout">Log Out</a>
-
-<div *ngIf="loggedIn">
-    logged in :)))
+<div>
+    <a routerLink="group-list">Group List</a>
+    <a *ngIf="loggedIn == false" routerLink="login"> | Login</a>
+    <a *ngIf="loggedIn"          routerLink="account"> | Account</a>
+    <a *ngIf="loggedIn"          routerLink="logout"> | Log Out</a>
 </div>
 
 <br>
