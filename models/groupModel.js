@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const channelSchema = mongoose.Schema({
     name: { type: String, required: true },
     users: [
-        {type: String}
+        { type: String }
     ]
 })
 
